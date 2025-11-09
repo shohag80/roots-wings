@@ -1,0 +1,75 @@
+@extends('Backend.Master')
+
+@section('Container')
+    <div class="container bg-body-secondary p-3 mt-2">
+        <div class="row">
+
+            <div class="col-md-3 text-center bg-warning rounded-right">
+                <h4>Recent Order</h4>
+            </div>
+            <div class="text-end col-md-6 col-sm-8">
+                <a href="" class="btn btn-outline-success">Order Filter</a> |
+                <a href="" class="btn btn-outline-info">Export</a>
+            </div>
+            <div class="col-md-3">
+                <form class="form-inline">
+                    <input class="form-control col-8 mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-info" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="mb-2">
+        <div class="container bg-body-tertiary p-2">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ord. Date</th>
+                        <th scope="col">Trans. ID</th>
+                        <th scope="col">Cust. Name</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Pay Method</th>
+                        <th scope="col">Pay Status</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Ord. Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $item)
+                        <tr>
+                            <th scope="row">{{ $item->id }}</th>
+                            <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
+                            <td>{{ $item->transaction_id }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>Dhaka</td>
+                            <td><a href="" class="text-dark btn-sm rounded-5">{{ $item->payment_method }}</a></td>
+                            <td><a href="" class="text-dark btn-sm rounded-5">{{ $item->payment_status }}</a></td>
+                            <td>{{ $item->amount }}/-</td>
+                            <td>
+                                @if ($item->order_status == '0')
+                                    <a href="{{ route('Order_Comfirm', $item->id) }}" class="badge bg-danger">Pending</a>
+                                @endif
+                                @if ($item->order_status == '1')
+                                    <a href="{{ route('Order_Comfirm', $item->id) }}" class="badge bg-success">Confirm</a>
+                                @endif
+                                @if ($item->order_status == '2')
+                                    <a href="{{ route('Order_Comfirm', $item->id) }}" class="badge bg-danger">Cancel</a>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('Admin_Order_Details', $item->id) }}"
+                                    class="btn badge btn-success btn-sm">View</a>
+                                <a href="{{ route('Delete_Order', $item->id) }}"
+                                    class="btn badge btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{ $orders->links() }}
+        </div>
+    </section>
+@endsection

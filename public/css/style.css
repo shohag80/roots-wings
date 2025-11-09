@@ -1,0 +1,117 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Body Section */
+
+body {
+    background: f1fbff;
+}
+
+
+/* Header Section */
+
+.section-padding {
+    padding: 100px 0px;
+}
+
+.sticky_header {
+    position: sticky;
+    top: 0;
+    padding: 5px;
+}
+
+/* Navber section */
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+div.sticky_header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: white;
+    z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carousel Section */
+
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+}
+
+.carousel-caption h5 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+}
+
+.carousel-caption {
+    z-index: 1000000;
+    /* background-color: rgb(255, 0, 221); */
+}
+
+
+
+
+
+/* Button Section */
+.btn-light {
+    background-color: rgb(159, 48, 255);
+    color: white;
+}
+
+.btn-light:hover {
+    background-color: rgb(119, 36, 191);
+    color: white;
+}
+
+
+/* Profile */
+
+
+
+
+
+
+/* Contact */
+
+
+
+
+
+
+/* Profile */
+
+
+
+
+
+/* Login */
