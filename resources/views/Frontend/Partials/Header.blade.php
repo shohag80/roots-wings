@@ -280,7 +280,7 @@
                   Home
                 </a>
               </li>
-              <li class="nav-item dropdown w-100 w-lg-auto">
+              {{-- <li class="nav-item dropdown w-100 w-lg-auto">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Shop
                 </a>
@@ -295,7 +295,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="./pages/store-list.html">Store List</a></li>
                 </ul>
-              </li>
+              </li> --}}
               <li class="nav-item dropdown w-100 w-lg-auto dropdown-fullwidth">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Mega menu
