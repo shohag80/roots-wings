@@ -3,15 +3,11 @@
 namespace App\Notifications;
 
 use App\Models\User;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserActivateNotification extends Notification implements ShouldQueue
+class UserActivateNotification extends Notification
 {
-    use Queueable;
-
     protected $user_data;
     /**
      * Create a new notification instance.
