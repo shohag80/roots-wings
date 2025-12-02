@@ -35,13 +35,13 @@
                     </td>
                     <td class="align-middle border-top-0">{{$item->created_at}}</td>
                     <td class="align-middle border-top-0">
-                        @if($item->delivery_status=='pending')<span class="badge bg-danger">{{$item->delivery_status}}</span>@endif
-                        @if($item->delivery_status=='confirm')<span class="badge bg-success">{{$item->delivery_status}}</span>@endif
-                        @if($item->delivery_status=='cancel')<span class="badge bg-secondary">{{$item->delivery_status}}</span>@endif
+                        @if($item->delivery_status==0)<span class="badge bg-danger">Pending</span>@endif
+                        @if($item->delivery_status==1)<span class="badge bg-success">Completed</span>@endif
+                        @if($item->delivery_status==2)<span class="badge bg-secondary">Cancel</span>@endif
                     </td>
                     <td class="align-middle border-top-0">৳ {{$item->amount}}/-</td>
                     <td class="align-middle border-top-0">
-                        @if($item->delivery_status=='pending')
+                        @if($item->delivery_status==0)
                         <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
                         <a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>
                         @elseif($item->delivery_status=='confirm')

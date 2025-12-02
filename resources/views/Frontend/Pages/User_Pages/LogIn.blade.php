@@ -17,8 +17,8 @@
     <link href="{{ url('/public/css/simplebar.min.css') }}" rel="stylesheet" />
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="{{ url('css/theme.min.css') }}">
-    <link rel="stylesheet" href="{{ url('css/fstyle.css') }}">
+    <link rel="stylesheet" href="{{ url('/public/css/theme.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/public/css/fstyle.css') }}">
     <!-- Google tag (gtag.js) -->
     <script async src="{{ url('/public/js/js.js') }}"></script>
 

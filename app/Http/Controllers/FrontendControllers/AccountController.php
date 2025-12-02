@@ -34,11 +34,11 @@ class AccountController extends Controller
                 'address' => $request->address,
                 'phone' => $request->phone,
                 'amount' => $amount,
-                'payment_method' => 'ePay',
+                'payment_method' => 2,
                 'transaction_id' => date('YmdHis'),
-                'payment_status' => 'pending',
+                'payment_status' => 0,
                 'currency' => 'BDT',
-                'delivery_status' => 'pending',
+                'delivery_status' => 0,
             ]);
 
         } else {
@@ -49,11 +49,11 @@ class AccountController extends Controller
                 'address' => $request->address,
                 'phone' => $request->phone,
                 'amount' => $amount,
-                'payment_method' => 'COD',
+                'payment_method' => 1,
                 'transaction_id' => date('Ymdhis'),
                 'currency' => 'BDT',
-                'payment_status' => 'pending',
-                'delivery_status' => 'pending',
+                'payment_status' => 0,
+                'delivery_status' => 0,
             ]);
         }
 

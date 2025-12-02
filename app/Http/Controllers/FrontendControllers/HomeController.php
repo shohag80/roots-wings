@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontendControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order_Details;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Wishlist;
@@ -15,7 +16,7 @@ class HomeController extends Controller
     public function userHome()
     {
         $products = Product::with('brand', 'category', 'subcategory')->get();
-        $best_sales = Product::with('brand', 'category', 'subcategory')->get();
+        $best_sales = Product::with('brand', 'category', 'subcategory')->whereIn('id', Order_Details::distinct('product_id')->pluck('product_id'))->get();
         $category = Category::all();
         $slider = Slider::where('status', 1)->get();
         $wishlist = Wishlist::where('user_id', auth()->id() ?? 0)->get();
