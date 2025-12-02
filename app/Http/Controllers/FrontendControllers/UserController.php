@@ -42,7 +42,7 @@ class UserController extends Controller
             'remember_token'    => Str::random(32),
         ]);
 
-        Mail::to($user_info->email)->queue(new UserVarification($user_info));
+        Mail::to($user_info->email)->send(new UserVarification($user_info));
 
         notify()->success('Your registration is successfully.');
         return redirect()->route('SignIn');
