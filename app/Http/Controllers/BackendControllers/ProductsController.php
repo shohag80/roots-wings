@@ -21,9 +21,13 @@ class ProductsController extends Controller
         return view('Backend.Pages.Products.Add_Product', compact('categories', 'sub_category', 'brand'));
     }
 
-    public  function list()
+    public  function list(Request $request)
     {
-        $product = Product::with(['brand', 'category', 'subcategory'])->paginate(31);
+        if ($request->productSearch) {
+            $product = Product::with(['brand', 'category', 'subcategory'])->where('name', 'like', '%' . $request->productSearch . '%')->paginate(31);
+        } else {
+            $product = Product::with(['brand', 'category', 'subcategory'])->paginate(31);
+        }
         return view('Backend.Pages.Products.Product_list', compact('product'));
     }
 

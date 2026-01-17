@@ -36,7 +36,7 @@ $(document).ready(function () {
         const categoryId = $(this).val();
         if (categoryId) {
             $.ajax({
-                url: '/manage/get-subcategories/' + categoryId,
+                url: '/roots_&_wings/manage/get-subcategories/' + categoryId,
                 type: 'GET',
                 success: function (data) {
                     let subCategorySelect = $('#SubCategory');

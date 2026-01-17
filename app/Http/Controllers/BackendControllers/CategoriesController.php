@@ -15,9 +15,13 @@ class CategoriesController extends Controller
         return view('Backend/Pages/Categories/Add_Category');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        $category = Category::all();
+        if($request->search_category){
+            $category = Category::search($request->search_category)->get();
+        }else{
+            $category = Category::all();
+        }
         return view('Backend/Pages/Categories/Category_List', compact('category'));
     }
 
@@ -99,9 +103,13 @@ class CategoriesController extends Controller
         return view('Backend.Pages.Categories.Sub_Category.Add_Category', compact('category'));
     }
 
-    public function sub_list()
-    {
-        $sub_category = Subcategory::with('category')->get();
+    public function sub_list(Request $request)
+    {   
+        if($request->subCategorySearch){
+            $sub_category = Subcategory::with('category')->where('name', 'LIKE', '%'.$request->subCategorySearch.'%')->get();
+        }else{
+            $sub_category = Subcategory::with('category')->get();
+        }
         return view('Backend.Pages.Categories.Sub_Category.Category_List', compact('sub_category'));
     }
 

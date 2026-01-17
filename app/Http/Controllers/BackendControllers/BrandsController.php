@@ -15,9 +15,13 @@ class BrandsController extends Controller
         return view('Backend.Pages.Brands.Add');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        $brand = Brand::all();
+        if ($request->has('brandSearch')) {
+            $brand = Brand::where('name', 'like', '%' . $request->brandSearch . '%')->get();
+        }else{
+            $brand = Brand::all();
+        }
         return view('Backend.Pages.Brands.All_Brand', compact('brand'));
     }
 

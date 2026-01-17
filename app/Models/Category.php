@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $guarded=[];
-    
+    protected $guarded = [];
+
+    static function search($key)
+    {
+        return self::where("name", "LIKE", "%" . $key . "%");
+    }
 }

@@ -14,8 +14,8 @@
             <a href="" class="btn btn-outline-info">Export</a>
         </div>
         <div class="col-md-3">
-            <form class="form-inline">
-                <input class="form-control col-8 mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline" method="GET" action="{{ route('category_list') }}">
+                <input name="search_category" class="form-control col-8 mr-sm-1" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-info" type="submit">Search</button>
             </form>
         </div>

@@ -125,7 +125,7 @@ Route::group(['prefix' => 'manage'], function () {
         Route::get('/profile/delivery_mans', [DeliveryController::class, 'delivery_mans'])->name('delivery');
 
         Route::get('/category/form', [BackendControllersCategoriesController::class, 'from'])->name('add_category');
-        Route::get('/category/list', [BackendControllersCategoriesController::class, 'list'])->name('category_list');
+        Route::get('/category/list/{id?}', [BackendControllersCategoriesController::class, 'list'])->name('category_list');
         Route::get('/category/update/{id}', [BackendControllersCategoriesController::class, 'update'])->name('category_update');
         Route::post('/category/update/store/{id}', [BackendControllersCategoriesController::class, 'update_store'])->name('category_update_store');
         Route::get('/category/delete/{id}', [BackendControllersCategoriesController::class, 'delete'])->name('category_delete');
@@ -133,15 +133,15 @@ Route::group(['prefix' => 'manage'], function () {
 
         Route::get('/sub-category/form', [BackendControllersCategoriesController::class, 'sub_from'])->name('add_sub_category');
         Route::post('/sub-category/store', [BackendControllersCategoriesController::class, 'sub_store'])->name('sub_category_store');
-        Route::get('/sub-category/list', [BackendControllersCategoriesController::class, 'sub_list'])->name('sub_category_list');
+        Route::get('/sub-category/list/{id?}', [BackendControllersCategoriesController::class, 'sub_list'])->name('sub_category_list');
 
         Route::get('/brand/form', [BackendControllersBrandsController::class, 'form'])->name('add_brand');
-        Route::get('/brand/list', [BackendControllersBrandsController::class, 'list'])->name('brnad_list');
+        Route::get('/brand/list/{id?}', [BackendControllersBrandsController::class, 'list'])->name('brnad_list');
         Route::post('/brand/store', [BackendControllersBrandsController::class, 'store'])->name('brand_store');
         Route::get('/brand/delete/{id}', [BackendControllersBrandsController::class, 'delete'])->name('brand_delete');
 
         Route::get('/product/form', [BackendControllersProductsController::class, 'form'])->name('add_product');
-        Route::get('/product/list', [BackendControllersProductsController::class, 'list'])->name('product_list');
+        Route::get('/product/list/{id?}', [BackendControllersProductsController::class, 'list'])->name('product_list');
         Route::post('/product/list', [BackendControllersProductsController::class, 'store'])->name('product_store');
         Route::get('/product/edit/{id}', [BackendControllersProductsController::class, 'edit'])->name('edit_product');
         Route::put('/product/update/{id}', [BackendControllersProductsController::class, 'update'])->name('product_update');
