@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-3 text-center">
                 <a style="text-decoration: none;" href="{{route('Home')}}">
-                    <h3 class="text-warning"><b>Online <span class="text-success">Shop</span></b></h3>
+                    <h3 class="text-warning"><b>Roots & <span class="text-success">Wings</span></b></h3>
                 </a>
             </div>
             <div class="col-md-6">
